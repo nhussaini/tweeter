@@ -25,6 +25,8 @@
 
     <!-- New Tweet CSS-->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <!--Tweet CSS-->
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
 
     <!-- External JS -->
@@ -32,9 +34,12 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-    
+
     <!-- composer-char-counter JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    
+    <!--timeago (to dispay time passed since a tweet)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
 
   <body>
@@ -48,7 +53,7 @@
       </div>
     </nav>
 
-    <header>
+    <header class="main-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -73,6 +78,26 @@
           </div>
         </form>
       </section>
+        <article class="tweet">
+          <header>
+            <div class="profile">
+              <img class="profile-image" src="https://i.imgur.com/73hZDYK.png" />
+              <p>Newton</p>
+            </div>
+            <p class="at-name">@SirIsaac</p>
+          </header>
+          <p class="message">If I have seen further it is standing by the shoulders of giants</p>
+          <hr />
+          <footer>
+            <span class="time-posted" datetime="2021-05-18 3:03 PM"></span>
+            <!-- <span class="time-posted">10 days ago</span> -->
+            <div>
+              <span class="icons flag"><i class="fas fa-flag"></i></span>
+              <span class="icons retweet"><i class="fas fa-retweet"></i></span>
+              <span class="icons heart"><i class="fas fa-heart"></i></span>
+            </div>
+          </footer>
+        </article>
     </main>
   </body>
 </html>

@@ -1,4 +1,4 @@
-header {
+.main-header {
   height: 400px;
   width: 100%;
   display: flex;
@@ -10,7 +10,7 @@ header {
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
-.name {
+.main-header.name {
   margin-top: 0;
   margin-bottom: 71px;
   color: #fff;
