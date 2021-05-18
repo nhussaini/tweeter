@@ -1,0 +1,29 @@
+.humming {
+  display: flex;
+  flex-direction: column;
+}
+
+.humming textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid black;
+  resize: none;
+  margin-bottom: 10px;
+  margin-top: 2px;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+.new-tweet-submit {
+  font-family: Bungee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-tweet-submit button {
+  background-color: #4152a1;
+  color: #ffffff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
