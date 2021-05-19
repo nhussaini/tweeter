@@ -13,5 +13,6 @@ $(document).ready(function() {
     //dynnamically reduce the count of the characters
     $(this).parents("form").children("div.new-tweet-submit").children(".counter").text(textLen)
   });
+  //render the timeago
   timeago.render(document.querySelectorAll('.time-posted'));
 });
