@@ -34,6 +34,7 @@
 
 // this function creates a markup for the tweet
 function createTweetElement (tweetData) {
+  const newTime = timeago.format(tweetData.created_at);
   const markup = `
   <article class="tweet" >
     <header>
@@ -47,7 +48,7 @@ function createTweetElement (tweetData) {
       <hr />
     <footer>
     
-      <span class="time-posted" datetime="${tweetData.created_at}"></span>
+      <span class="time-posted" datetime="${tweetData.created_at}">${newTime}</span>
         <div>
   
           <span class="icons flag"><i class="fas fa-flag"></i></span>
@@ -80,23 +81,39 @@ $(document).ready(function() {
 
   //Event handler for submitting a form
   $( "#submitTweet" ).submit(function( event ) {
-    console.log("form submitted");
+   // console.log("form submitted");
     event.preventDefault();
     //serialize the data coming from the form
-    let data = $( this ).serialize();
+    let data = $( this).serialize();
+   let textData = $(this).find("[name = 'text']").val().trim();
+
+    // data = data.replaceAll('%20','');
+    console.log("new data:",data);
     const url ='http://localhost:8080/tweets/';
 
-    //
-    $.ajax({
-      type: "POST",
-      url: url,
-      data: data,
-      // success: success,
-      // dataType: dataType
-    })
-    .done(function(data) {
-      console.log("done!!");
-    });
+    //get the length of data
+    const dataLength = textData.length
+    console.log(dataLength);
+    if (dataLength > 140) {
+      alert("Your tweet should not exceed more thna 140 characters");
+    } else if(dataLength === 0) {
+      alert("Your tweet can't be empty");
+    } else {
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        // success: success,
+        // dataType: dataType
+      })
+      .done(function(data) {
+        console.log("done!!");
+      });
+    }
+    
+
+  
+    
 
   });
 
@@ -110,8 +127,8 @@ $(document).ready(function() {
     });
   }
   loadTweets();
-  //render the timeago
-  timeago.render(document.querySelectorAll('.time-posted'));
+  // timeago.render(document.querySelectorAll('.time-posted'))
+ 
  
 });
 
