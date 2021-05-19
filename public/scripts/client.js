@@ -75,6 +75,27 @@ $(document).ready(function() {
   // to add it to the page so we can make sure it's got all the right elements, classes, etc.
   //$('#tweets-container').append($tweet); 
   renderTweets(data);
+
+  $( "#submitTweet" ).submit(function( event ) {
+    console.log("form submitted");
+    event.preventDefault();
+    //serialize the data coming from the form
+    let data = $( this ).serialize();
+    const url ='http://localhost:8080/tweets/';
+
+    //
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: data,
+      // success: success,
+      // dataType: dataType
+    })
+    .done(function(data) {
+      console.log("done!!");
+    });
+
+  });
  
 });
 
