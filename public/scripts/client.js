@@ -31,6 +31,11 @@
 //   }
 // ]
 
+const escape = function (str) {
+  let p = document.createElement("p");
+  p.appendChild(document.createTextNode(str));
+  return p.innerHTML;
+};
 
 // this function creates a markup for the tweet
 function createTweetElement (tweetData) {
@@ -44,7 +49,8 @@ function createTweetElement (tweetData) {
       </div>
       <p class="at-name">${tweetData.user.handle}</p>
     </header>
-      <p class="message">${tweetData.content.text}</p>
+       <p class="message">${tweetData.content.text}</p>
+
       <hr />
     <footer>
     
@@ -67,7 +73,7 @@ const renderTweets = function(tweets) {
     // calls createTweetElement for each tweet
     const $tweet = createTweetElement(tweetData);
     // takes return value and appends it to the tweets container
-    $('#tweets-container').append($tweet);
+    $('#tweets-container').prepend($tweet);
   }
   
 }
@@ -87,9 +93,8 @@ $(document).ready(function() {
     let data = $( this).serialize();
    let textData = $(this).find("[name = 'text']").val().trim();
 
-    // data = data.replaceAll('%20','');
-    console.log("new data:",data);
-    const url ='http://localhost:8080/tweets/';
+  
+    const url ='/tweets';
 
     //get the length of data
     const dataLength = textData.length
@@ -99,16 +104,20 @@ $(document).ready(function() {
     } else if(dataLength === 0) {
       alert("Your tweet can't be empty");
     } else {
-      $.ajax({
-        type: "POST",
-        url: url,
-        data: data,
-        // success: success,
-        // dataType: dataType
-      })
-      .done(function(data) {
-        console.log("done!!");
-      });
+      $.post( "/tweets", data).then(function( response ) {
+      console.log( "Data Loaded: " + response );
+      lastTweet();
+  });
+      // $.ajax({
+      //   type: "POST",
+      //   url: url,
+      //   data: data,
+      //   success: function(data) {
+      //     console.log(data);
+      //   }
+      //   // dataType: dataType
+      // })
+      
     }
     
 
@@ -120,14 +129,19 @@ $(document).ready(function() {
   const loadTweets = function() {
     const url = 'http://localhost:8080/tweets';
     $.ajax({url}).then((response) => {
-      console.log(response);
         renderTweets(response);
+    });
+  }
 
-        console.log('done!');
+  const lastTweet = function() {
+    const url = 'http://localhost:8080/tweets';
+    $.ajax({url}).then((response) => {
+      $('#tweet-text').val("");
+      $('.counter').val("140");
+      renderTweets([response[response.length-1]]);
     });
   }
   loadTweets();
-  // timeago.render(document.querySelectorAll('.time-posted'))
  
  
 });
