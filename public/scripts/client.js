@@ -49,7 +49,7 @@ function createTweetElement (tweetData) {
       </div>
       <p class="at-name">${tweetData.user.handle}</p>
     </header>
-       <p class="message">${tweetData.content.text}</p>
+      <p class="message">${escape(tweetData.content.text)}</p>
 
       <hr />
     <footer>
