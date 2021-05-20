@@ -46,7 +46,6 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
-
       <div class="text-part">
         <p class="prompt"><b>Write</b> a new tweet</p>
         <span class="angle-double-down"><i class="fas fa-angle-double-down"></i></span>
@@ -69,17 +68,18 @@
         <!-- container for error message -->
         <div class="error"></div>
         <h2>Compose Tweet</h2>
+        <!--to submit a new tweet-->
         <form id="submitTweet" method="POST" action="/tweets/">
           <div class="humming">
-            <!-- <label for="tweet-text">What are you humming about?</label> -->
             <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         </div>
-          <div class="new-tweet-submit">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
+        <div class="new-tweet-submit">
+          <button type="submit">Tweet</button>
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </div>
         </form>
       </section>
+      <!--This container is populated by jQuery for the tweets-->
       <div id= "tweets-container"></div>
     </main>
   </body>

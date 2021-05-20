@@ -18,10 +18,7 @@
   padding-left: 1em;
   padding-right: 1em;
 }
-/* .tweet header p:nth-child(2){
-  opacity: 0.5;
-  font-weight: bolder;
-} */
+
 .tweet .at-name {
   opacity: 0.5;
   font-weight: bolder;
@@ -38,13 +35,11 @@
 .tweet hr{
   width: 98%;
   border: 2px solid #555149;
-  
 }
 
 .tweet footer {
   display: flex;
   justify-content: space-between;
-  /* border-top: 3px solid #555149; */
   padding-left: 1em;
   padding-right: 1em;
   padding: 0.3em 1em 0.5em 1em;

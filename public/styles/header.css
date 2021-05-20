@@ -7,7 +7,6 @@
   align-items: center;
   background-color: #d89c2a;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .main-header.name {
@@ -15,6 +14,8 @@
   margin-bottom: 71px;
   color: #fff;
 }
+
+/* MediaQuery */
 @media only screen and (max-width: 400px) {
   .main-header .name{
     margin-top: 0px;

@@ -1,3 +1,5 @@
+//adds css class to counter if number of counts goes beyond the 140
+//it also renders timeago library
 $(document).ready(function() {
   const maxLength = 140;
   $('textarea').on('keyup', function(event) {
