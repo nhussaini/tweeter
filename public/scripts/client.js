@@ -1,36 +1,9 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 
-//data for the tweet
-// Fake data taken from initial-tweets.json
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
+//Client-side JS logic goes here
+//jQuery is already loaded
+//Use jQuery's document ready function
 
+//to handle cross-site Scripting
 const escape = function (str) {
   let p = document.createElement("p");
   p.appendChild(document.createTextNode(str));
@@ -79,51 +52,48 @@ const renderTweets = function(tweets) {
 }
 
 $(document).ready(function() { 
-  //const $tweet = createTweetElement(tweetData); //why should we use $ sign before tweet?
-
-  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-  //$('#tweets-container').append($tweet); 
-  //renderTweets(data);
-
   //Event handler for submitting a form
   $( "#submitTweet" ).submit(function( event ) {
    // console.log("form submitted");
     event.preventDefault();
     //serialize the data coming from the form
     let data = $( this).serialize();
-   let textData = $(this).find("[name = 'text']").val().trim();
-
-  
+    let textData = $(this).find("[name = 'text']").val().trim();
     const url ='/tweets';
 
     //get the length of data
     const dataLength = textData.length
-    console.log(dataLength);
+    
+    //validate the textarea
     if (dataLength > 140) {
-      alert("Your tweet should not exceed more thna 140 characters");
+      //if error message already exists, remove the <p> tag and hide the .error div
+      if($("#errorMessage")) {
+        $("#errorMessage").remove();
+        $(".error").hide();
+      }
+      $(".error")
+      if($(".error").is(":hidden")) {
+        $(".error").slideDown("slow").append("<p id='errorMessage'>Please, don't exceed the max length</p>");
+      } 
     } else if(dataLength === 0) {
-      alert("Your tweet can't be empty");
+      //if error message already exists, remove the <p> tag and hide the .error div
+      if($("#errorMessage")) {
+        $("#errorMessage").remove();
+        $(".error").hide();
+      }
+      if($(".error").is(":hidden")) {
+        $(".error").slideDown("slow").append("<p id='errorMessage'>You can't post an empty tweet</p>");
+      } 
     } else {
+      if($(".error").is(":visible")) {
+        $(".error").hide();
+      } 
+      
       $.post( "/tweets", data).then(function( response ) {
       console.log( "Data Loaded: " + response );
       lastTweet();
-  });
-      // $.ajax({
-      //   type: "POST",
-      //   url: url,
-      //   data: data,
-      //   success: function(data) {
-      //     console.log(data);
-      //   }
-      //   // dataType: dataType
-      // })
-      
+      });
     }
-    
-
-  
-    
-
   });
 
   const loadTweets = function() {
@@ -133,17 +103,18 @@ $(document).ready(function() {
     });
   }
 
+  // this function fetches the last tweet added passes it to the renderTweets
   const lastTweet = function() {
-    const url = 'http://localhost:8080/tweets';
+    const url = '/tweets';
     $.ajax({url}).then((response) => {
+      //make the content of the textarea empty on after fetching a new tweet
       $('#tweet-text').val("");
+      //reset the counter to 140 characters back
       $('.counter').val("140");
       renderTweets([response[response.length-1]]);
     });
   }
   loadTweets();
- 
- 
 });
 
 
