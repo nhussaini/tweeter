@@ -15,3 +15,21 @@
   margin-bottom: 71px;
   color: #fff;
 }
+@media only screen and (max-width: 400px) {
+  .main-header .name{
+    margin-top: 0px;
+    font-size: 1.2em;
+  }  
+}
+
+@media only screen and (min-width: 1024px) {
+  .main-header {
+    width: 30vw;
+    /* height: 389px; */
+    float: left;
+    margin-top: 38px;
+    margin-left: 28px;
+    border-radius: 1em;
+    box-shadow: 5px 5px 5px 5px grey;
+  }
+}

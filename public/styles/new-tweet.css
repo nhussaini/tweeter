@@ -26,8 +26,17 @@
 .new-tweet-submit button {
   background-color: #4152a1;
   color: #ffffff;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding:4px 8px;
+  /* padding-top: 4px;
+  padding-bottom: 4px; */
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2em;
+}
+.new-tweet-submit button:hover {
+  background-color: #ffffff;
+  color: #4152a1;
+
 }
 
 .red {

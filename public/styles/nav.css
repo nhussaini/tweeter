@@ -5,7 +5,10 @@ nav {
   height: 120px;
   /* full width of the viewport */
   width: 100%;
-  background-color: #4056A1;
+  /* background-color: #4056A1; */
+  background-color: #d89c2a;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+
   color: #ffffff;
   padding: 1em 1.5em;
   display: flex;
@@ -27,4 +30,20 @@ nav .text-part i{
 
 nav .logo{
   font-family: 'Bungee';
+}
+@media only screen and (max-width: 400px) {
+  .prompt {
+    display: none;
+  }
+  .logo {
+    /* margin-left: 100px; */
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056A1;
+    background-image: none;
+
+  }
 }
