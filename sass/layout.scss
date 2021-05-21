@@ -1,0 +1,34 @@
+$font-stack:    'Source Sans Pro';
+$body-color:   #545149;
+$body-bg-color: #f4f1ec;
+$body-font-size:  24px;
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: $body-color;
+  background-color: $body-bg-color;
+  font-size: $body-font-size;
+  font-family: $font-stack;
+}
+
+ main {
+   width: 90%;
+   margin: auto;
+ }
+
+ /* Media query */
+ @media only screen and (min-width: 1024px) {
+  main {
+    width: 55vw;
+    float: right;
+    padding-right: 2em;
+
+  }
+}
+

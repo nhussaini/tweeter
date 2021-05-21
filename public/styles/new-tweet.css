@@ -2,11 +2,10 @@
   display: flex;
   flex-direction: column;
 }
-
 .humming textarea {
   border: none;
   overflow: auto;
-  outline: none; 
+  outline: none;
   background-color: transparent;
   border-bottom: 2px solid black;
   resize: none;
@@ -21,13 +20,10 @@
   display: flex;
   justify-content: space-between;
 }
-
 .new-tweet-submit button {
   background-color: #4152a1;
   color: #ffffff;
-  padding:4px 8px;
-  /* padding-top: 4px;
-  padding-bottom: 4px; */
+  padding: 4px 8px;
   border-radius: 5px;
   border: none;
   font-size: 1.2em;
@@ -35,23 +31,22 @@
 .new-tweet-submit button:hover {
   background-color: #ffffff;
   color: #4152a1;
-
 }
 
 .red {
   color: red;
 }
 
-.new-tweet .error{
+.new-tweet .error {
   border: 1px solid;
-	margin: 10px auto;
-	padding: 5px 10px 5px 50px;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-	max-width: 800px;
+  margin: 10px auto;
+  padding: 5px 10px 5px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  max-width: 800px;
   color: #D8000C;
-	background-color: #FFBABA;
-  background-image: url('https://i.imgur.com/GnyDvKN.png');
+  background-color: #FFBABA;
+  background-image: url("https://i.imgur.com/GnyDvKN.png");
   height: 80px;
   margin-top: 5px;
   text-align: center;

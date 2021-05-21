@@ -11,18 +11,23 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 1;
+  .text-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .text-part i{
+    color: red;
+  }
+
+  .logo{
+    font-family: 'Bungee';
+  }
 }
-nav .text-part {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-nav .text-part i {
-  color: red;
-}
-nav .logo {
-  font-family: "Bungee";
-}
+
+
+
+
 
 .prompt {
   margin-bottom: 0;
@@ -34,9 +39,11 @@ nav .logo {
     display: none;
   }
 }
+
 @media only screen and (min-width: 1024px) {
   nav {
     background-color: #4056A1;
     background-image: none;
+
   }
 }

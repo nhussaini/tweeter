@@ -1,16 +1,18 @@
-.tweet{
+.tweet {
   border: 3px solid #555149;
   margin-top: 2em;
 }
+.tweet:hover {
+  box-shadow: 10px 5px 5px #ccc;
+}
 .tweet .profile {
   display: flex;
-  
 }
 .tweet .profile .profile-image {
   margin: 10px 15px 10px 10px;
 }
-.tweet:hover {
-  box-shadow: 10px 5px 5px #ccc;
+.tweet .profile p {
+  font-weight: bold;
 }
 .tweet header {
   display: flex;
@@ -18,25 +20,19 @@
   padding-left: 1em;
   padding-right: 1em;
 }
-
 .tweet .at-name {
   opacity: 0.5;
   font-weight: bolder;
 }
-.tweet .profile p {
-  font-weight: bold;
-}
-
 .tweet .message {
   padding-left: 1em;
   font-weight: bold;
   margin-bottom: 50px;
 }
-.tweet hr{
+.tweet hr {
   width: 98%;
   border: 2px solid #555149;
 }
-
 .tweet footer {
   display: flex;
   justify-content: space-between;
@@ -48,13 +44,11 @@
   font-size: 0.7em;
   font-weight: bold;
 }
-
 .tweet footer .icons {
   font-size: 0.5em;
   color: #47569c;
   margin-left: 0.8em;
 }
-
-.tweet footer .icons:hover{
+.tweet footer .icons:hover {
   color: #b19c65;
 }

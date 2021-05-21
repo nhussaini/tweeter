@@ -1,6 +1,6 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone that uses jQuery, AJAX, HTML5 and CSS3. It lets the user post new Tweets. When a user submits a  tweet, the list of tweets is refreshed, displaying the new tweets on the top of the list.
+Tweeter is a simple, single-page Twitter clone that uses jQuery, AJAX, HTML5, SASS and CSS3. It lets the user post new Tweets. When a user submits a  tweet, the list of tweets is refreshed, displaying the new tweets on the top of the list.
 
 ## Screenshots
 !["Screenshot of tweet compose box for large screen"](https://github.com/nhussaini/tweeter/blob/master/docs/tweet-dv.png?raw=true)
